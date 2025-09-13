@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "faiss-cpu>=1.12.0",
+    "fpdf2>=2.8.4",
     "google-genai>=1.33.0",
     "langchain>=0.3.27",
     "pypdf2>=3.0.1",

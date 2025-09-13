@@ -158,6 +158,7 @@ def get_final_structred_response(context: List[Dict], reasoning_trace: Dict, que
     1. The answer should be clear, concise, comprehensive and focused
     2. Use reasoning trace to analyze reasoning and missing info of each hop
     3. Structure your answer logically
+    4. Try to give answer within 250 words if possible, untill user mentions specific word limit
     
     Answer:"""
 
