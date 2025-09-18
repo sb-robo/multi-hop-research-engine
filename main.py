@@ -1,4 +1,5 @@
 import os
+import datetime
 import streamlit as st
 from fpdf import FPDF
 from google import genai
@@ -26,7 +27,7 @@ def load_cross_encoder():
         cross_encoder = CrossEncoder("cross-encoder/ms-marco-MiniLM-L6-v2", device=device)
         return cross_encoder
     except Exception as e:
-        st.error(f"Error loading CrossEncoder: {e}")
+        st.error(f"Error while loading CrossEncoder: {e}")
         return None
 
 
@@ -64,7 +65,7 @@ def main():
         message = get_vector_embeddings(chunks, client)
 
         if message == "Success":
-            st.success("Your PDFs are processed. You May ask your question now")
+            st.success("Your PDFs are processed. You May ask your queries now")
         else:
             st.error(f"Error while creating embeddings: {message}")
 
@@ -112,7 +113,7 @@ def main():
                 st.download_button(
                     label="Download PDF",
                     data=pdf_output,
-                    file_name="chat_history.pdf",
+                    file_name=f"chat_history{datetime.datetime.now()}.pdf",
                     mime="application/pdf",
                 )
             except Exception as e:
